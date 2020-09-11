@@ -50,3 +50,5 @@ log.bad('this is bad style')
 
 [git 传送门](https://github.com/zooey1184/log)
 [npm 传送门](https://www.npmjs.com/package/@zooey1184/log)
+
+> 暂不支持 log.rgb(...)(xxx)
