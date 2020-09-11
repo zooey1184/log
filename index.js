@@ -27,10 +27,14 @@ function useMustache(_type, content, c, opts) {
   const type = _type
   let chalkFn = chalk[type]
   if (type === 'hex' || type === 'rgb') {
-    if (excludeBG.includes(opts)) {
-      chalkFn = chalk[type](c)[opts]
+    if (type === 'rgb') {
+      const rc = rgbColor(c)
+      chalkFn = chalk.rgb(...rc)
     } else {
       chalkFn = chalk[type](c)
+    }
+    if (excludeBG.includes(opts)) {
+      chalkFn = chalkFn[opts]
     }
   }
   
@@ -56,13 +60,27 @@ function useMustache(_type, content, c, opts) {
   }
 }
 
+function rgbColor(c) {
+  return  c.replace(/rgb/, '').replace('(', '').replace(')', '').split(',')
+}
+
 function _hex(type, c, content, opts) {
   if (content.length > 1) {
     const [title, ...last] = content
     if (opts && excludeBG.includes(opts)) {
-      log(chalk.bgHex(c)(title), useMustache(type, last, c, opts))
+      if (c.match(/^#/)) {
+        log(chalk.bgHex(c)(title), useMustache(type, last, c, opts))
+      } else {
+        const ct1 = rgbColor(c)
+        log(chalk.bgRgb(...ct1)(title), useMustache(type, last, c, opts))
+      }
     } else {
-      log(chalk.bgHex(c)(title), useMustache(type, last, c))
+      if (c.match(/^#/)) {
+        log(chalk.bgHex(c)(title), useMustache(type, last, c))
+      } else {
+        const ct2 = rgbColor(c)
+        log(chalk.bgRgb(...ct2)(title), useMustache(type, last, c))
+      }
     }
   } else {
     log(useMustache(type, content[0], c))

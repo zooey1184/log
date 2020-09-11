@@ -42,9 +42,11 @@ log.hex('#d43f33')('this is hex style')
 // 除此之外  你还可以自定义 或者覆盖原有样式
 log.good = '#CD0074'
 log.good(' GOOD ', 'this is {{good}} style')
-
+// 支持rgb
+log.bad = 'rgb(120,189,144)'
+log.bad('this is bad style')
 ```
 ![example](https://tva1.sinaimg.cn/large/007S8ZIlly1gilj7itxkuj30uu0bwt9t.jpg)
 
-
-> ps：暂不支持rgb
+[git 传送门](https://github.com/zooey1184/log)
+[npm 传送门](https://www.npmjs.com/package/@zooey1184/log)
