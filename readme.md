@@ -36,8 +36,9 @@ log.xx('xxxx', 'not defined this function or property show this default style')
 // bold | underline
 log.bold('this is bold style')
 
-// hex 使用hex 函数 颜色为hex 样式
+// hex 使用hex 函数 颜色为hex|rgb 样式
 log.hex('#d43f33')('this is hex style')
+log.hex('rgb(88,189,144)')(' rgb ','this is rgb style\n')
 
 // 除此之外  你还可以自定义 或者覆盖原有样式
 log.good = '#CD0074'
@@ -51,4 +52,4 @@ log.bad('this is bad style')
 [git 传送门](https://github.com/zooey1184/log)
 [npm 传送门](https://www.npmjs.com/package/@zooey1184/log)
 
-> 暂不支持 log.rgb(...)(xxx)
+> 不支持 log.rgb(...)(xxx)  你可以使用 log.hex('rgb(88,189,144)')

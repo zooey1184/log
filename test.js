@@ -13,6 +13,7 @@ log.bold('this is bold style\n')
 
 // hex 使用hex 函数 颜色为hex 样式
 log.hex('#d43f33')('hex','this is {{hex}} style\n')
+log.hex('rgb(88,189,144)')('hex','this is {{hex}} style\n')
 
 // 除此之外  你还可以自定义
 log.good = '#CD0074'
