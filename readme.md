@@ -24,7 +24,7 @@ npm i @zooey1184/log
 #### 使用
 ```js
 // log === console.log   log.error ==> console.error
-const log = require('log')
+const log = require('@zooey1184/log')
 
 log('this is normal log style')
 // 如果拆分多个，则第一个会设置成有背景色的提示
